@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+
+const pageTitle = "About Me";
+const id = {
+	firstName: "Bastian",
+	country: "Norway",
+	occupation: "Operations Engineer",
+	hobbies: ["Programming", "Gaming", "Reading"],
+}
+const skills = ["HTML", "CSS", "Python", "Matlab"]
+
+const skillColor = "Navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+
+		<!-- STYLING -->
+		<style define:vars={{skillColor, fontWeight, textCase}}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+
+			.skill {
+				color: var(--skillColor);
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+		</style>
+		
+	</head>
+	<body>
+
+        <!-- Navigation between sites! -->
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+
+		<!------ Page Content ------>
+		<h1>{pageTitle}</h1>
+        <h2>My name is Bastian Christensen</h2>
+
+        <p>I'm making my first website!</p>
+		<p>Here are some facts about me:</p>
+
+		<ul>
+			<li>My name is {id.firstName}.</li>
+			<li>I live in {id.country}, and work as an {id.occupation}.</li>
+			<li>My hobbies include:</li><br />
+			<ul>
+				{id.hobbies.map((hobby) => (
+					<li>{hobby}</li>
+				))}
+			</ul>
+
+			<br />
+
+			<li>My skills are:</li><br />
+			<ul>
+				{skills.map((skill) => (
+					<li class="skill">{skill}</li>
+				))}
+
+	</body>
+</html>
