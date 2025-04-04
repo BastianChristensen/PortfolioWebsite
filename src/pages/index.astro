@@ -1,4 +1,7 @@
 ---
+import Footer from '../components/Footer.astro';
+import { imageConfig } from 'astro:assets';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
 ---
 
@@ -14,11 +17,11 @@ import '../styles/global.css';
 	<body>
 
 		<!-- Navigation between sites! -->
-		<a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+		 <Header />
 
+		<!------ Page Content ------>
 		<h1>Bastian Christensen</h1>
 		
+		<Footer />
 	</body>
 </html>

@@ -1,4 +1,6 @@
 ---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
 
 const pageTitle = "About Me";
@@ -41,9 +43,7 @@ const textCase = "uppercase";
 	<body>
 
         <!-- Navigation between sites! -->
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+		<Header />
 
 		<!------ Page Content ------>
 		<h1>{pageTitle}</h1>
@@ -69,6 +69,8 @@ const textCase = "uppercase";
 				{skills.map((skill) => (
 					<li class="skill">{skill}</li>
 				))}
+			</ul>
 
+		<Footer />	
 	</body>
 </html>
