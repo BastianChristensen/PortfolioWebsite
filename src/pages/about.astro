@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 import '../styles/global.css';
 
 const pageTitle = "About Me";
@@ -17,63 +18,9 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-
-		<!-- STYLING -->
-		<style define:vars={{skillColor, fontWeight, textCase}}>
-			h1 {
-				color: purple;
-				font-size: 4rem;
-			}
-
-			.skill {
-				color: var(--skillColor);
-				font-weight: var(--fontWeight);
-				text-transform: var(--textCase);
-			}
-		</style>
+<BaseLayout pageTitle={pageTitle}>
 		
-	</head>
-	<body>
+	<!------ Page Content ------> 
+	<h1>About me</h1>
 
-        <!-- Navigation between sites! -->
-		<Header />
-
-		<!------ Page Content ------>
-		<h1>{pageTitle}</h1>
-        <h2>My name is Bastian Christensen</h2>
-
-        <p>I'm making my first website!</p>
-		<p>Here are some facts about me:</p>
-
-		<ul>
-			<li>My name is {id.firstName}.</li>
-			<li>I live in {id.country}, and work as an {id.occupation}.</li>
-			<li>My hobbies include:</li><br />
-			<ul>
-				{id.hobbies.map((hobby) => (
-					<li>{hobby}</li>
-				))}
-			</ul>
-
-			<br />
-
-			<li>My skills are:</li><br />
-			<ul>
-				{skills.map((skill) => (
-					<li class="skill">{skill}</li>
-				))}
-			</ul>
-
-		<Footer />
-		<script>
-			import "../scripts/menu.js";
-		</script>
-	</body>
-</html>
+</BaseLayout>
