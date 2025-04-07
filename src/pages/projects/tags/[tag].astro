@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    title: "Project 3",
+    description: "This is the third project.",
+    tags: ["web", "design"],
+    image: "/images/project1.jpg",
+    url: "/projects/project-1"
+  },
+  {
+    title: "Project 2",
+    description: "This is the second project.",
+    tags: ["app", "development"],
+    image: "/images/project2.jpg",
+    url: "/projects/project-2"
+  },
+  {
+    title: "Project 1",
+    description: "This is the first project.",
+    tags: ["web", "development"],
+    image: "/images/project3.jpg",
+    url: "/projects/project-3"
+  }
+];
+
+export async function getStaticPaths() {
+  const allTags = [...new Set(projects.flatMap((project) => project.tags))];
+  return allTags.map((tag) => ({
+    params: { tag },
+    props: { tag }
+  }));
+}
+
+const { tag } = Astro.params;
+const filteredProjects = projects.filter((project) => project.tags.includes(tag));
+---
+
+<BaseLayout pageTitle={`Projects tagged with "${tag}"`}>
+  <h1>Projects tagged with "{tag}"</h1>
+  <a href="/projects" class="back-link">← Back to All Projects</a>
+  <section class="projects-list">
+    {filteredProjects.map((project) => (
+      <div class="project-card">
+        <img src={project.image} alt={project.title} />
+        <div class="project-info">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div class="tags">
+            {project.tags.map((tag) => (
+              <span class="tag"><a href={`/projects/tags/${tag}`}>{tag}</a></span>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #00539F;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Reuse styles from projects.astro */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .project-card img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .project-info {
+    flex: 1;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .tags {
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .tag a {
+    text-decoration: none;
+    color: #00539F;
+  }
+
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>

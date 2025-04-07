@@ -3,29 +3,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 
 const currentProject = {
-  title: "My Project",
-  image: "",
-  description: "This is a description of my project. It is a great project that does many things.",
+  title: "I'm making a game",
+  image: "/public/images/Screenshot 2025-04-07 at 20.38.28.png",
+  description: "Development have started on my first game in Godot."
 };
 
 const latestNews = [
 {
-    title: "News 1",
-    description: "This is the first news item.",
-    date: "April 5, 2025",
-    image: "/images/news1.jpg"
-  },
-  {
-    title: "News 2",
-    description: "This is the second news item.",
-    date: "April 6, 2025",
-    image: "/images/news2.jpg"
-  },
-  {
-    title: "News 3",
-    description: "This is the third news item.",
+    title: "Next Project Decided",
+    description: "I'm making a short game demo in Godot Game Engine.",
     date: "April 7, 2025",
-    image: "/images/news3.jpg"
+    image: "/public/images/demogame.icon.png"
+  },
+  {
+    title: "Website is live!",
+    description: "My website is now live!",
+    date: "April 7, 2025",
+    image: "/public/images/world-wide-web.png"
+  },
+  {
+    title: "YouTube Channel",
+    description: "Check out my YouTube channel!.",
+    date: "April 7, 2025",
+    image: "/public/images/youtube.png"
   }
 ]
 ---
@@ -34,7 +34,6 @@ const latestNews = [
   <!------ Page Content ------> 
   <h1>Bastian Christensen</h1>
   <h2>HOME PAGE</h2>
-  <br />
   <br />
   <br />
 
@@ -65,9 +64,6 @@ const latestNews = [
       ))}
     </div>
   </section>
-  <br />
-  <br />
-  <br />
 </BaseLayout>
 
 <style>
@@ -148,9 +144,19 @@ const latestNews = [
     border-radius: 8px;
   }
 
+  .news-card img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 8px;
+}
+
   .news-info h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  .news-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
   }
 
   .news-info small {
