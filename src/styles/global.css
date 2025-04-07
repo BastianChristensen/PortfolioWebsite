@@ -1,5 +1,5 @@
 html {
-    background-color: #f1f5f9;
+    background-color: #ffffff;
     font-family: sans-serif;;
 }
 /* Dark mode styling */
@@ -43,19 +43,20 @@ h1 {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: blue;
 }
 
 .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: #ff9776;
+  background-color: #ffd95c;
   display: none;
   margin: 0;
 }
 
 .nav-links a {
+  color: black;
   display: block;
   text-align: center;
   padding: 10px 0;
@@ -66,7 +67,7 @@ h1 {
 }
 
 .nav-links a:hover, a:focus {
-  background-color: #e68669;
+  background-color: #ffd95c;
 }
 
 .expanded {

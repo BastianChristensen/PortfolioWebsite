@@ -1,36 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+const pageTitle = "Projects";
 ---
 <BaseLayout pageTitle={pageTitle}>
 
   <!------ Page Content ------> 
-  <h1>Bastian Christensen</h1>
-  <h2>HOME PAGE</h2>
+  <h1>Take a look at my projects</h1>
+  <h2>PROJECTS</h2>
+
 </BaseLayout>
 
 <style>
-    
-    body {
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-    }
-
-    h1 {
+      h1 {
       text-align: left;
       line-height: 0;
       padding-top: 1rem;
     }
     
     h2 {
-      color: blue;
+      color: orange;
       text-align: left;
     }
 
     html.dark h2 {
-        color: orange;
+        color: greenyellow;
     }
-
 </style>
