@@ -1,12 +1,73 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
+
+const currentProject = {
+  title: "My Project",
+  image: "",
+  description: "This is a description of my project. It is a great project that does many things.",
+};
+
+const latestNews = [
+{
+    title: "News 1",
+    description: "This is the first news item.",
+    date: "April 5, 2025",
+    image: "/images/news1.jpg"
+  },
+  {
+    title: "News 2",
+    description: "This is the second news item.",
+    date: "April 6, 2025",
+    image: "/images/news2.jpg"
+  },
+  {
+    title: "News 3",
+    description: "This is the third news item.",
+    date: "April 7, 2025",
+    image: "/images/news3.jpg"
+  }
+]
 ---
 <BaseLayout pageTitle={pageTitle} data-page="home">
 
   <!------ Page Content ------> 
   <h1>Bastian Christensen</h1>
   <h2>HOME PAGE</h2>
+  <br />
+  <br />
+  <br />
+
+  <section class="current-project">
+    <h2 style="text-align: right;">Current Project</h2>
+    <div class="project-card">
+      <img src={currentProject.image} alt={currentProject.title} />
+      <div class="project-info">
+        <h3>{currentProject.title}</h3>
+        <p>{currentProject.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!------ Latest News Section ------> 
+  <section class="latest-news">
+    <h2>Latest News</h2>
+    <div class="news-cards">
+      {latestNews.map((item: { title: string; description: string; date: string; image: string }) => (
+        <div class="news-card">
+          <img src={item.image} alt={item.title} />
+          <div class="news-info">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <small>{item.date}</small>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  <br />
+  <br />
+  <br />
 </BaseLayout>
 
 <style>
@@ -27,10 +88,81 @@ const pageTitle = "Home Page";
     h2 {
       color: blue;
       text-align: left;
+      line-height: 0;
     }
 
     html.dark h2 {
         color: orange;
     }
+
+    .current-project {
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .project-card img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .latest-news {
+    margin-top: 2rem;
+  }
+
+  .news-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .news-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    width: calc(33.333% - 1rem);
+    box-sizing: border-box;
+  }
+
+  .news-card img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .news-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .news-info small {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .news-cards {
+      flex-direction: column;
+    }
+
+    .news-card {
+      width: 100%;
+    }
+  }
 
 </style>
