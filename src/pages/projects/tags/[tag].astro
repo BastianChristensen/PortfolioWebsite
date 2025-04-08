@@ -51,7 +51,6 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   :root.dark .back-link {
     color: white;
   }
-
   .back-link:hover {
     text-decoration: underline;
   }
@@ -68,12 +67,13 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     display: flex;
     gap: 1rem;
     border: 1px solid #cccccc00;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background-color: #7777770c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 8px;
     align-items: center;
   }
+  
   html.dark .project-card {
     background-color: #3b3b3b6c;
   }
@@ -98,6 +98,9 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   }
 
   .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
     margin-top: 0.5rem;
   }
 
@@ -109,12 +112,17 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     border-radius: 4px;
     font-size: 0.875rem;
   }
-
   .tag a {
     text-decoration: none;
     color: black;
   }
+  html.dark .tag {
+    background-color: #f0f0f045; /* Dark mode background */
+  }
 
+  html.dark .tag a {
+    color: #ffffff; /* Dark mode text color */
+  }
   .tag a:hover {
     text-decoration: underline;
   }
@@ -139,19 +147,20 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   color: inherit; /* Ensure text color matches the design */
 }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .projects-page {
       flex-direction: column;
     }
     .tags {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 0.5rem;
       margin-top: 0.5rem;
     }
     .tag {
       display: block;
       margin-right: 0;
+      background-color: #f0f0f045;
     }
     .tags-list {
       order: -1;
@@ -206,10 +215,10 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     .project-info {
       text-align: center;
     }
-    .project-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
   }
-}
+
+  html.dark .tag {
+    background-color: #f0f0f045;
+  }
+  
 </style>

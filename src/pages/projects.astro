@@ -120,7 +120,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     }
     .tags {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 0.5rem;
       margin-top: 0.5rem;
     }
@@ -255,6 +255,9 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
   }
 
   .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
     margin-top: 0.5rem;
   }
 
