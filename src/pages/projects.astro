@@ -79,6 +79,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     padding-top: 1rem;
     font-size: 2.5rem;
     word-break: break-word;
+    white-space: nowrap; /* changes */
   }
   
   h2 {
@@ -118,23 +119,52 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     .tags-list {
       order: -1;
       margin-bottom: 2rem;
+      width: 100%; /* Make it the same width as the project cards */
+      display: flex;
+      flex-wrap: wrap; /* Allow tags to wrap to new lines */
+      gap: 0.5rem; /* Add natural spacing between tags */
+      padding: 1rem; /* Maintain padding for the container */
+      background-color: #f8f8f8;
+      border-radius: 8px;
     }
-
+    .tags-list ul {
+      display: flex;
+      flex-wrap: wrap; /* Allow tags to wrap */
+      gap: 0.5rem; /* Add spacing between tags */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%; /* Ensure it spans the full width */
+    }
+    .tags-list li {
+      margin: 0; /* Remove bottom margin for inline layout */
+    }
+        .tags-list li {
+      margin: 0; /* Remove bottom margin for inline layout */
+    }
+    .tags-list a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #000000;
+    }
+    .tags-list a:hover {
+      text-decoration: underline;
+    }
     .projects-list {
       margin-bottom: 0; /* Remove extra margin for better alignment */
     }
-
     .project-card {
       flex-direction: column; /* Stack image and info vertically */
       align-items: center; /* Center-align content */
     }
-
     .project-card img {
       width: 100%; /* Make the image responsive */
       max-width: 300px; /* Limit the maximum width */
       height: auto;
     }
-
     .project-info {
       text-align: center; /* Center-align text */
     }
