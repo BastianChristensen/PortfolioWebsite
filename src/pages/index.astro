@@ -6,7 +6,7 @@ const currentProject = {
   title: "I'm making a game",
   image: "/images/godotgame1.png",
   description: "Development have started on my first game in Godot.",
-  url: "/projects/project-2"
+  url: "/projects/proj-2"
 };
 
 const latestNews = [
@@ -15,21 +15,21 @@ const latestNews = [
     description: "I'm making a short game demo in Godot Game Engine.",
     date: "April 7, 2025",
     image: "/images/demogame.icon.png",
-    url: "/news/next-project-decided"
+    url: "/projects/proj-2"
   },
   {
     title: "Website is live!",
     description: "My website is now live!",
     date: "April 7, 2025",
     image: "/images/world-wide-web.png",
-    url: "/news/website-live"
+    url: "/projects/proj-1"
   },
   {
     title: "YouTube Channel",
     description: "Check out my YouTube channel!.",
     date: "April 7, 2025",
     image: "/images/youtube.png",
-    url: "/news/youtube-channel"
+    url: "https://www.youtube.com/@neural-dynamics"
   }
 ];
 ---
@@ -201,6 +201,7 @@ const latestNews = [
     height: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    box-sizing: border-box;
   }
   html.dark .news-card {
     background-color: #3b3b3b6c;
@@ -210,37 +211,43 @@ const latestNews = [
   }
 
   .news-card img {
-    width: 100px;
+    width: 50px;
     height: auto;
     border-radius: 8px;
   }
 
-  .news-card img {
-    max-width: 50px;
-    height: auto;
-    border-radius: 8px;
-  }
   .news-card-wrapper {
     width: calc(33.333% - 1rem);
     box-sizing: border-box;
   }
 
-  .news-info h3 {
+  .news-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .news-info h3 {;
     margin: 0;
     font-size: 1rem;
   }
+  .news-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
   .news-info p {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-  }
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
 
-  .news-info small {
-    color: #666;
-  }
+.news-info small {
+  color: #666;
+  margin-top: auto; /* Push the date to the bottom */
+  text-align: left;
+}
 
   @media (max-width: 768px) {
     .news-cards {
