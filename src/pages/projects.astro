@@ -59,6 +59,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
 </BaseLayout>
 
 <style>
+  
   body {
     width: 100%;
     max-width: 80ch;
@@ -215,10 +216,15 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     display: flex;
     gap: 1rem;
     border: 1px solid #cccccc00;
+    background-color: #7777770c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     padding: 1rem;
     border-radius: 8px;
     align-items: center;
+  }
+
+  html.dark .project-card {
+    background-color: #3b3b3b6c;
   }
 
   .project-card img {
