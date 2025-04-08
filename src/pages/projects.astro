@@ -119,28 +119,25 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     .tags-list {
       order: -1;
       margin-bottom: 2rem;
-      width: 100%; /* Make it the same width as the project cards */
+      width: 100%; 
       display: flex;
-      flex-wrap: wrap; /* Allow tags to wrap to new lines */
-      gap: 0.5rem; /* Add natural spacing between tags */
-      padding: 1rem; /* Maintain padding for the container */
+      flex-wrap: wrap;
+      gap: 0.5rem; 
+      padding: 1rem; 
       background-color: #f8f8f8;
       border-radius: 8px;
     }
     .tags-list ul {
       display: flex;
-      flex-wrap: wrap; /* Allow tags to wrap */
-      gap: 0.5rem; /* Add spacing between tags */
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
       padding: 0;
       margin: 0;
       list-style: none;
-      width: 100%; /* Ensure it spans the full width */
+      width: 100%; 
     }
     .tags-list li {
-      margin: 0; /* Remove bottom margin for inline layout */
-    }
-        .tags-list li {
-      margin: 0; /* Remove bottom margin for inline layout */
+      margin: 0; 
     }
     .tags-list a {
       display: inline-block;
@@ -154,19 +151,19 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
       text-decoration: underline;
     }
     .projects-list {
-      margin-bottom: 0; /* Remove extra margin for better alignment */
+      margin-bottom: 0;
     }
     .project-card {
-      flex-direction: column; /* Stack image and info vertically */
-      align-items: center; /* Center-align content */
+      flex-direction: column; 
+      align-items: center;
     }
     .project-card img {
-      width: 100%; /* Make the image responsive */
-      max-width: 300px; /* Limit the maximum width */
+      width: 100%; 
+      max-width: 300px;
       height: auto;
     }
     .project-info {
-      text-align: center; /* Center-align text */
+      text-align: center;
     }
   }
 
