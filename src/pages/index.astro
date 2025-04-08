@@ -4,7 +4,7 @@ const pageTitle = "Home Page";
 
 const currentProject = {
   title: "I'm making a game",
-  image: "/images/Screenshot 2025-04-07 at 20.38.28.png",
+  image: "/images/godotgame1.png",
   description: "Development have started on my first game in Godot."
 };
 
@@ -104,13 +104,18 @@ const latestNews = [
     border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 8px;
+    align-content: center;
   }
 
   .project-card img {
     width: 150px;
     height: auto;
     border-radius: 8px;
-  }
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+
+    }
 
   .project-info h3 {
     margin: 0;
