@@ -1,8 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: My First Blog Post
-pubDate: 05/04/2025
-description: This is my first blog post.
-tags: ["astro"]
+title: Project 01 - Website using Astro
+pubDate: 08/04/2025
 ---
 This Website!

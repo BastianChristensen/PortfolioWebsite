@@ -64,15 +64,20 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   }
 
   .project-card {
-    display: flex;
-    gap: 1rem;
-    border: 1px solid #cccccc00;
-    background-color: #7777770c;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    border-radius: 8px;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border: 1px solid #cccccc00;
+  background-color: #7777770c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%; 
+  box-sizing: border-box; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+}
   
   html.dark .project-card {
     background-color: #3b3b3b6c;
@@ -80,7 +85,7 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
 
   .project-card img {
     width: 100%;
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -89,12 +94,15 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   }
 
   .project-info {
-    flex: 1;
+    flex-grow: 1;
+    width: 100%;
   }
 
-  .project-info h3 {
+  .project-info h3,
+  .project-info p{
     margin: 0;
-    font-size: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .tags {
@@ -200,8 +208,8 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
       margin-bottom: 0;
     }
     .project-card {
-      flex-direction: row; 
-      align-items: center;
+      flex-direction: column; 
+      align-items: flex-start;
     }
     .project-card img {
       width: 100%; 
@@ -213,7 +221,7 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
       display: block;
     }
     .project-info {
-      text-align: center;
+      text-align: left;
     }
   }
 
