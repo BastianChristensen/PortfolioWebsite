@@ -61,10 +61,15 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   .project-card {
     display: flex;
     gap: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #7777770c;
     padding: 1rem;
     border-radius: 8px;
     align-items: center;
+  }
+  html.dark .project-card {
+    background-color: #3b3b3b6c;
   }
 
   .project-card img {
