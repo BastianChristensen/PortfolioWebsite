@@ -90,9 +90,14 @@ h1 {
     font-size: 2.5rem;
 }
 
+h2 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
 h3 {
     margin: 1rem 0;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 /* nav styles */
