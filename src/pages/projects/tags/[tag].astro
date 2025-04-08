@@ -42,16 +42,20 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     color: #00539F;
     text-decoration: none;
   }
+  :root.dark .back-link {
+    color: white;
+  }
 
   .back-link:hover {
     text-decoration: underline;
   }
 
-  /* Reuse styles from projects.astro */
   .projects-list {
+    flex: 3;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 2rem;
   }
 
   .project-card {
@@ -60,12 +64,17 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     border: 1px solid #ccc;
     padding: 1rem;
     border-radius: 8px;
+    align-items: center;
   }
 
   .project-card img {
-    width: 150px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 8px;
+    display: block;
   }
 
   .project-info {
@@ -92,7 +101,7 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
 
   .tag a {
     text-decoration: none;
-    color: #00539F;
+    color: black;
   }
 
   .tag a:hover {

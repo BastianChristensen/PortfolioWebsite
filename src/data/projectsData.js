@@ -1,23 +1,16 @@
 export const projects = [
   {
-    title: "Project 3",
-    description: "This is the third project.",
-    tags: ["web", "design"],
-    image: "/images/project1.jpg",
-    url: "/projects/project-1"
+    title: "Godot Game",
+    description: "I'm making a game using Godot Game Engine!",
+    tags: ["game-dev", "python"],
+    image: "/images/godotgame1.png",
+    url: "/projects/proj-2.md"
   },
   {
-    title: "Project 2",
-    description: "This is the second project.",
-    tags: ["app", "development"],
-    image: "/images/project2.jpg",
-    url: "/projects/project-2"
-  },
-  {
-    title: "Project 1",
-    description: "This is the first project.",
+    title: "This Website",
+    description: "I build this website myself using Astro!",
     tags: ["web", "development"],
-    image: "/images/project3.jpg",
-    url: "/projects/project-3"
+    image: "/images/Untitled design.png",
+    url: "/projects/proj-1.md"
   }
 ];
