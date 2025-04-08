@@ -15,7 +15,7 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
 ---
 
 <BaseLayout pageTitle={`Projects tagged with "${tag}"`}>
-  <h1>Projects tagged with "{tag}"</h1>
+  <h1>Projects tagged with <span style="color: #ff0000;">"{tag}"</span></h1>
   <a href="/projects" class="back-link">← Back to All Projects</a>
   <section class="projects-list">
     {filteredProjects.map((project) => (
@@ -106,5 +106,73 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
 
   .tag a:hover {
     text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .projects-page {
+      flex-direction: column;
+    }
+    .tags {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      display: block;
+      margin-right: 0;
+    }
+    .tags-list {
+      order: -1;
+      margin-bottom: 2rem;
+      width: 100%; 
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem; 
+      padding: 1rem; 
+      background-color: #f8f8f8;
+      border-radius: 8px;
+    }
+    .tags-list ul {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%; 
+    }
+    .tags-list li {
+      margin: 0; 
+    }
+    .tags-list a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: #f0f0f045;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #000000;
+    }
+    .tags-list a:hover {
+      text-decoration: underline;
+    }
+    .projects-list {
+      margin-bottom: 0;
+    }
+    .project-card {
+      flex-direction: row; 
+      align-items: center;
+    }
+    .project-card img {
+      width: 100%; 
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .project-info {
+      text-align: center;
+    }
   }
 </style>

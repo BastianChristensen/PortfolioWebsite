@@ -109,6 +109,16 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     .projects-page {
       flex-direction: column;
     }
+    .tags {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      display: block;
+      margin-right: 0;
+    }
     .tags-list {
       order: -1;
       margin-bottom: 2rem;
@@ -135,7 +145,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     .tags-list a {
       display: inline-block;
       padding: 0.25rem 0.5rem;
-      background-color: #f0f0f0;
+      background-color: #f0f0f045;
       border-radius: 4px;
       text-decoration: none;
       color: #000000;
@@ -197,7 +207,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-bottom: 2rem; /* Add space between the last project card and the footer */
+    margin-bottom: 2rem;
   }
 
   .project-card {
@@ -240,10 +250,11 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     border-radius: 4px;
     font-size: 0.875rem;
   }
+  
 
   .tag a {
     text-decoration: none;
-    color: #000000;
+    color: black;
   }
 
   .tag a:hover {
