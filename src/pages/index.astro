@@ -5,29 +5,33 @@ const pageTitle = "Home Page";
 const currentProject = {
   title: "I'm making a game",
   image: "/images/godotgame1.png",
-  description: "Development have started on my first game in Godot."
+  description: "Development have started on my first game in Godot.",
+  url: "/projects/project-2"
 };
 
 const latestNews = [
-{
+  {
     title: "Next Project Decided",
     description: "I'm making a short game demo in Godot Game Engine.",
     date: "April 7, 2025",
-    image: "/images/demogame.icon.png"
+    image: "/images/demogame.icon.png",
+    url: "/news/next-project-decided"
   },
   {
     title: "Website is live!",
     description: "My website is now live!",
     date: "April 7, 2025",
-    image: "/images/world-wide-web.png"
+    image: "/images/world-wide-web.png",
+    url: "/news/website-live"
   },
   {
     title: "YouTube Channel",
     description: "Check out my YouTube channel!.",
     date: "April 7, 2025",
-    image: "/images/youtube.png"
+    image: "/images/youtube.png",
+    url: "/news/youtube-channel"
   }
-]
+];
 ---
 <BaseLayout pageTitle={pageTitle} data-page="home">
 
@@ -39,66 +43,98 @@ const latestNews = [
 
   <section class="current-project">
     <h2 style="text-align: right;">Current Project</h2>
-    <div class="project-card">
-      <img src={currentProject.image} alt={currentProject.title} />
-      <div class="project-info">
-        <h3>{currentProject.title}</h3>
-        <p>{currentProject.description}</p>
+    <a href={currentProject.url} class="project-card-link">
+      <div class="project-card">
+        <img src={currentProject.image} alt={currentProject.title} />
+        <div class="project-info">
+          <h3>{currentProject.title}</h3>
+          <p>{currentProject.description}</p>
+        </div>
       </div>
-    </div>
+    </a>
   </section>
 
   <!------ Latest News Section ------> 
   <section class="latest-news">
     <h2>Latest News</h2>
     <div class="news-cards">
-      {latestNews.map((item: { title: string; description: string; date: string; image: string }) => (
-        <div class="news-card">
-          <img src={item.image} alt={item.title} />
-          <div class="news-info">
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-            <small>{item.date}</small>
-          </div>
+      {latestNews.map((item) => (
+        <div class="news-card-wrapper">
+          <a href={item.url} class="news-card-link">
+            <div class="news-card">
+              <img src={item.image} alt={item.title} />
+              <div class="news-info">
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+                <small>{item.date}</small>
+              </div>
+            </div>
+          </a>
         </div>
       ))}
     </div>
   </section>
-</BaseLayout>
 
 <style>
-    
-    body {
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-    }
 
-    h1 {
-      text-align: left;
-      line-height: 0;
-      padding-top: 1rem;
-      font-size: 2.5rem;
-      word-break: break-word;
-    }
-    
-    h2 {
-      color: blue;
-      text-align: left;
-      line-height: 0;
-    }
+  .project-card-link,
+  .news-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
 
-    h3 {
-      text-align: right;
-    }
-    h4 {
-      text-align: left;
-    }
+  .project-card-link:hover .project-card,
+  .news-card-link:hover .news-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .news-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
 
-    html.dark h2 {
-        color: orange;
-    }
+  .project-card-link:hover .project-card,
+  .news-card-link:hover .news-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  
+  body {
+  width: 100%;
+  max-width: 80ch;
+  padding: 1rem;
+  line-height: 1.5;
+  }
+
+  h1 {
+    text-align: left;
+    line-height: 0;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    word-break: break-word;
+  }
+  
+  h2 {
+    color: blue;
+    text-align: left;
+    line-height: 0;
+  }
+
+  h3 {
+    text-align: right;
+  }
+  h4 {
+    text-align: left;
+  }
+
+  html.dark h2 {
+      color: orange;
+  }
 
     .current-project {
     margin-bottom: 2rem;
@@ -124,7 +160,15 @@ const latestNews = [
     object-fit: cover;
     display: block;
 
-    }
+  }
+
+  .news-info h4,
+  .news-info p,
+  .news-info small {
+    margin: 0;
+    word-wrap: break-word; /* Ensure text wraps properly */
+    overflow-wrap: break-word; /* Handle long words */
+  }
 
   .project-info h3 {
     margin: 0;
@@ -139,10 +183,13 @@ const latestNews = [
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-self: space-between;
   }
 
   .news-card {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 1rem;
     border: 1px solid #cccccc00;
@@ -150,8 +197,10 @@ const latestNews = [
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 8px;
-    width: calc(33.333% - 1rem);
-    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   html.dark .news-card {
     background-color: #3b3b3b6c;
@@ -170,13 +219,21 @@ const latestNews = [
     max-width: 50px;
     height: auto;
     border-radius: 8px;
-}
+  }
+  .news-card-wrapper {
+    width: calc(33.333% - 1rem);
+    box-sizing: border-box;
+  }
 
   .news-info h3 {
     margin: 0;
     font-size: 1rem;
   }
   .news-info p {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0.5rem 0;
     font-size: 0.9rem;
   }
@@ -188,6 +245,9 @@ const latestNews = [
   @media (max-width: 768px) {
     .news-cards {
       flex-direction: column;
+    }
+    .news-card-wrapper {
+    width: 100%; /* Full width on smaller screens */
     }
     h1 {
       font-size: 1.8rem;

@@ -19,16 +19,22 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   <a href="/projects" class="back-link">← Back to All Projects</a>
   <section class="projects-list">
     {filteredProjects.map((project) => (
-      <div class="project-card">
-        <img src={project.image} alt={project.title} />
-        <div class="project-info">
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <div class="tags">
-            {project.tags.map((tag) => (
-              <span class="tag"><a href={`/projects/tags/${tag}`}>{tag}</a></span>
-            ))}
+      <div class="project-card-wrapper">
+        <a href={project.url} class="project-card-link">
+          <div class="project-card">
+            <img src={project.image} alt={project.title} />
+            <div class="project-info">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+            </div>
           </div>
+        </a>
+        <div class="tags">
+          {project.tags.map((tagItem) => (
+            <span class="tag">
+              <a href={`/projects/tags/${tagItem}`}>{tagItem}</a>
+            </span>
+          ))}
         </div>
       </div>
     ))}
@@ -112,6 +118,27 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   .tag a:hover {
     text-decoration: underline;
   }
+  .project-card-link .project-card {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+  .project-card-link:hover .project-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .project-card-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color from parent */
+}
+
+.project-card-link h3,
+.project-card-link p {
+  margin: 0;
+  color: inherit; /* Ensure text color matches the design */
+}
+
   @media (max-width: 768px) {
     .projects-page {
       flex-direction: column;
@@ -179,5 +206,10 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
     .project-info {
       text-align: center;
     }
+    .project-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
+}
 </style>
