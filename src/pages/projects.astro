@@ -118,6 +118,7 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     .tag {
       display: block;
       margin-right: 0;
+      background-color: #f0f0f045;
     }
     .tags-list {
       order: -1;
@@ -207,13 +208,14 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; 
   }
 
   .project-card {
     display: flex;
     gap: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     padding: 1rem;
     border-radius: 8px;
     align-items: center;
@@ -250,7 +252,6 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
     border-radius: 4px;
     font-size: 0.875rem;
   }
-  
 
   .tag a {
     text-decoration: none;
@@ -260,4 +261,13 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
   .tag a:hover {
     text-decoration: underline;
   }
+
+  html.dark .tag {
+    background-color: #f0f0f045;
+  }
+
+  html.dark .tag a {
+    color: #ffffff;
+  }
+  
 </style>
