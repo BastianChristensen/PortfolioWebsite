@@ -3,7 +3,7 @@ export const projects = [
     title: "Godot Game",
     description: "I'm making a game using Godot Game Engine!",
     tags: ["game-dev", "python"],
-    image: "/images/godotgame1.png",
+    image: "/images/share-image.webp",
     url: "/projects/pro2"
   },
   {
