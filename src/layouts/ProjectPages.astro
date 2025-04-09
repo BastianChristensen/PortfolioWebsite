@@ -1,16 +1,12 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
-const { frontmatter } = Astro.props;
-const proNum = frontmatter.proNum || "No project number provided.";
-const color = frontmatter.color || "No color provided.";
-const upDate = frontmatter.upDate || "DD/MM/YYYY;"
+const { title, upDate, proNum, color } = Astro.props;
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-    <h1>Project {frontmatter.proNum}: <span style={`color: ${color};`}>{frontmatter.title}</span></h1>
+<BaseLayout pageTitle={title}>
+    <h1>Project {proNum}: <span style={`color: ${color};`}>{title}</span></h1>
     <a href="/projects" class="back-link">← Back to All Projects</a>
     <b style="font-size: 1.2em;">Updated: {upDate}</b>
-    <img src={frontmatter.image?.url} width="300" alt={frontmatter.image?.alt} />
     <slot />
 </BaseLayout>
 
