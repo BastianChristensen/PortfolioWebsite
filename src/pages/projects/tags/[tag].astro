@@ -64,21 +64,24 @@ const filteredProjects = projects.filter((project) => project.tags.includes(tag)
   }
 
   .project-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  border: 1px solid #cccccc00;
-  background-color: #7777770c;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  border-radius: 8px;
-  width: 100%; 
-  box-sizing: border-box; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word; 
-}
-  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border: 1px solid #cccccc00;
+    background-color: #7777770c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%; 
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
+  .project-card-wrapper {
+    display: block;
+  }
+
   html.dark .project-card {
     background-color: #3b3b3b6c;
   }
