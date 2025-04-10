@@ -2,14 +2,168 @@
 import ProjectPages from '../../layouts/ProjectPages.astro';
 
 const metadata = {
-  title: "Game using Godot",
-  upDate: "08/04/2025",
+  title: "Game in Godot",
+  upDate: "10/04/2025",
   proNum: "02",
-  color: "#50A5F2"
+  color: "#82B7D8",
 };
+
+const techStack = [
+  { name: "Python", icon: "/icons/python.png"},
+  { name: "GDScript", icon: "/icons/demogame.apple-touch-icon.png"},
+  { name: "Aseprite", icon: "/icons/Logo_Aseprite.svg.png"},
+];
+
+const images = [
+  { src: "", alt: "Screenshot 1" },
+  { src: "", alt: "Screenshot 2" },
+  { src: "", alt: "Screenshot 3" },
+];
 ---
 
 <ProjectPages {...metadata}>
+  <br />
+  <h2>Tech Stack</h2>
+  <div class="tech-stack">
+    {techStack.map((tech) => (
+      <span class="tech-item">
+        {tech.name}
+        <picture>
+          <img src={tech.icon} alt={`${tech.name} icon`} class="tech-icon" />
+        </picture>
+      </span>
+    ))}
+  </div>
+  <br />
+
   <h2>About this project</h2>
-  <p>Godot Game</p>
-</ProjectPages>
+  <p>
+    Work in progress! Come back later to see the finished product.
+  </p>
+
+  <h2>Gallery</h2>
+  <div class="carousel">
+    <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+    <div class="carousel-images">
+      {images.map((image, index) => (
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="carousel-image"
+          style={`display: ${index === 0 ? 'block' : 'none'};`}
+        />
+      ))}
+    </div>
+    <button class="carousel-button next" onclick="nextSlide()">❯</button>
+  </div>
+
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index: number) {
+  const slides = document.querySelectorAll('.carousel-image');
+  slides.forEach((slide, i) => {
+    (slide as HTMLElement).style.display = i === index ? 'block' : 'none';
+  });
+}
+
+  declare global {
+    interface Window {
+      prevSlide: () => void;
+      nextSlide: () => void;
+    }
+  }
+
+  window.prevSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  window.nextSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  // Initialize the first slide
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+  });
+</script>
+
+<style>
+  .tech-stack {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .tech-item img.tech-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  html.dark .tech-item {
+    background-color: #3b3b3b;
+    color: #ffffff;
+  }
+
+  .carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .carousel-images {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 8px;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>

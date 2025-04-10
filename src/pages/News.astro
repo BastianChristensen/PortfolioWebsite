@@ -10,7 +10,8 @@ const newsentry = [
     title: "The Website is Live!",
     description: "My first project is officially done. The portfolio website is now live, and I will move on to other projects.",
     image: "/images/astronews.png",
-    url: "/posts/news1"
+    url: "/posts/news1",
+    date: "April 10, 2025",
   },
 
 ];
@@ -30,6 +31,7 @@ const newsentry = [
               <h3>{news.title}</h3>
               <p>{news.description}</p>
             </div>
+            <div class="news-date">{news.date}</div>
           </div>
         </a>
       </div>
@@ -82,6 +84,8 @@ const newsentry = [
     padding: 1rem;
     border-radius: 8px;
     align-items: center;
+    position: relative;
+  
   }
   html.dark .news-card {
     background-color: #3b3b3b6c;
@@ -92,6 +96,17 @@ const newsentry = [
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
+  }
+  .news-date {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  html.dark .news-date {
+    color: #666;
   }
 
   .news-info {
