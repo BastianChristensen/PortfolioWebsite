@@ -1,9 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
-const { frontmatter } = Astro.props;
-const pubDate = frontmatter.pubDate || "DD/MM/YYYY;"
-const title = frontmatter.title || "No Title";
+const { title = "No Title", pubDate = "DD/MM/YYYY" } = Astro.props;
 ---
 <BaseLayout pageTitle={title}>
   <h1>{title}</h1>
@@ -11,20 +9,31 @@ const title = frontmatter.title || "No Title";
   <b>
     <span style="color: var(--pub-date-color, #ff0000);">Published:</span> {pubDate}
   </b>
-
-  <style>
-    :root.dark {
-      --pub-date-color: rgb(148, 66, 255);
-    }
-  </style>
   <slot />
 </BaseLayout>
 
-
 <style>
+  :root.dark {
+    --pub-date-color: rgb(148, 66, 255);
+  }
+    
   a {
     color: #00539F;
+    text-decoration: none;
   }
+  a:hover {
+    text-decoration: underline;
+  }
+  :root.dark a {
+    color: #FFD700 !important; 
+  }
+  :root.dark a:hover {
+    text-decoration: underline !important;
+  }
+  :root.dark a:visited {
+    color: #FFD700 !important;
+  }
+  
   h3 {
     font-weight: normal;
   }
@@ -41,10 +50,6 @@ const title = frontmatter.title || "No Title";
     color: #00539F;
     text-decoration: none;
   }
-  :root.dark .back-link {
-    color: white;
-  }
-
   .back-link:hover {
     text-decoration: underline;
   }
