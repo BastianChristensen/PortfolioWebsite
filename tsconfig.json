@@ -6,7 +6,8 @@
   ],
   "exclude": [
     "dist",
-    "src/components/NewsPost.astro"
+    "src/components/NewsPost.astro",
+    "src/pages/posts/news2.astro"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
