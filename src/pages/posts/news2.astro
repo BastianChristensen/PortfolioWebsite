@@ -1,0 +1,279 @@
+---
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+
+const frontmatter = {
+  title: "Update on the Godot Game",
+  pubDate: "22/04/2025",
+};
+---
+<MarkdownPostLayout {...frontmatter}>
+    <p>I've been debating what my game should be about. Aside from being a 2D game with pixel art, I haven't made any concrete decisions yet.
+      However, during the Easter holidays, I came up with a very cool idea for the game.<br /><br />
+      
+      The About Me page I was planning to add will now be replaced by the game. It will be a 2D platformer that goes through my life in broad strokes. Work on the sprites has officially started.      
+    </p>
+    <br />
+    <div class="project-card-wrapper">
+        <a href="/projects/pro2" class="project-card-link">
+          <div class="project-card">
+            <img src="/images/share-image.webp" alt="Game in Godot" />
+            <div class="project-info">
+              <h3>Game in Godot</h3>
+              <p>I'm making a game using Godot Game Engine!</p>
+            </div>
+          </div>
+        </a>
+        <div class="tags">
+          <span class="tag">
+            <a href="/projects/tags/game">game</a>
+          </span>
+          <span class="tag">
+            <a href="/projects/tags/python">python</a>
+          </span>
+        </div>
+      </div>
+
+</MarkdownPostLayout>
+
+<style>
+      
+  body {
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: left;
+    line-height: 0;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    word-break: break-word;
+    white-space: nowrap; /* changes */
+  }
+  
+
+
+  h3 {
+    color: orange;
+    text-align: right;
+    line-height: 1.2;
+  }
+
+  html.dark h2 {
+    color: greenyellow;
+  }
+  html.dark h3 {
+    color: greenyellow;
+  }
+  html.dark .tags-list {
+    background-color: #3b3b3b;
+  }
+  html.dark .tags-list a {
+    color: #ffffff;
+  }
+
+  .projects-page {
+    display: flex;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .projects-page {
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 2.3rem;
+    }
+    .tags {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      display: block;
+      margin-right: 0;
+      background-color: #f0f0f045;
+    }
+    .tags-list {
+      order: -1;
+      margin-bottom: 2rem;
+      width: 100%; 
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem; 
+      padding: 1rem; 
+      background-color: #f8f8f8;
+      border-radius: 8px;
+    }
+    .tags-list ul {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%; 
+    }
+    .tags-list li {
+      margin: 0; 
+    }
+    .tags-list a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: #f0f0f045;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #000000;
+    }
+    .tags-list a:hover {
+      text-decoration: underline;
+    }
+    .projects-list {
+      margin-bottom: 0;
+    }
+    .project-card {
+      flex-direction: row; 
+      align-items: center;
+    }
+    .project-card img {
+      width: 100%; 
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .project-info {
+      text-align: center;
+    }
+  }
+
+  .tags-list {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 8px;
+    max-height: fit-content;
+    align-self: flex-start
+  }
+
+  .tags-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tags-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .tags-list a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .tags-list a:hover {
+    text-decoration: underline;
+  }
+
+  .projects-list {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem; 
+  }
+
+  .project-card {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #cccccc00;
+    background-color: #7777770c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    align-items: center;
+  }
+
+  html.dark .project-card {
+    background-color: #3b3b3b6c;
+  }
+
+  .project-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .project-info {
+    flex: 1;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .tag a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .tag a:hover {
+    text-decoration: underline;
+  }
+
+  html.dark .tag {
+    background-color: #f0f0f045;
+  }
+
+  html.dark .tag a {
+    color: #ffffff;
+  }
+  .project-card-wrapper {
+  display: block;
+}
+
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card-link .project-card {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+/* Optional: hover effect */
+.project-card-link:hover .project-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+</style>
