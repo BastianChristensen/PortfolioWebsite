@@ -3,13 +3,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 
 const currentProject = {
-  title: "I'm making a game",
-  image: "/images/share-image.webp",
-  description: "Development have started on my first game in Godot.",
-  url: "/projects/pro2"
+  title: "Comming Soon!",
+  image: "/images/loading.png",
+  description: "Next project will be announced soon!.",
+  /*url: "/projects/pro2"*/
 };
 
 const latestNews = [
+{
+    title: "Project Cancelled",
+    description: "The game project I was working on has been cancelled. I realized that I wasn't ready to take on such a project yet.",
+    date: "May 29, 2025",
+    image: "/images/cancelled.png",
+    url: "/posts/news3"
+  },
   {
     title: "NEWS: Decision made!",
     description: "I had a cool idea regarding the game I'm making.",
@@ -23,13 +30,6 @@ const latestNews = [
     date: "April 10, 2025",
     image: "/icons/internet.png",
     url: "/projects/pro1"
-  },
-  {
-    title: "NEWS: Website is live!",
-    description: "My website is now live! Read about what's next.",
-    date: "April 7, 2025",
-    image: "/images/world-wide-web.png",
-    url: "/posts/news1"
   },
 ];
 ---
