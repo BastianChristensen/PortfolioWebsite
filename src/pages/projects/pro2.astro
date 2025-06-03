@@ -1,0 +1,213 @@
+---
+import ProjectPages from '../../layouts/ProjectPages.astro';
+
+const metadata = {
+  title: "Budget App",
+  upDate: "03/05/2025",
+  proNum: "02",
+  color: "#71B8E3", /* Remember to change this */
+};
+
+const techStack = [
+  { name: "Python", icon: "/icons/python.png"},
+];
+
+const images = [
+  { src: "/projectpics/website/Screenshot 2025-03-27 at 16.38.29.png", alt: "Screenshot 1" },
+  { src: "/projectpics/website/Screenshot 2025-03-27 at 16.38.35.png", alt: "Screenshot 2" },
+  { src: "/projectpics/website/Screenshot 2025-03-27 at 16.38.40.png", alt: "Screenshot 3" },
+];
+---
+
+<ProjectPages {...metadata}>
+  <br />
+  <h2>Tech Stack</h2>
+  <div class="tech-stack">
+    {techStack.map((tech) => (
+      <span class="tech-item">
+        {tech.name}
+        <picture>
+          <img src={tech.icon} alt={`${tech.name} icon`} class="tech-icon" />
+        </picture>
+      </span>
+    ))}
+  </div>
+  <br />
+
+  <h2>About this project</h2>
+  <p>
+I've had a goal for some time; Be more finacially resoponsible and aware of my spending. To achieve this I have been making budgets in excel,
+and it's worked great so far. I made one budget for the whole year, and then a new, more detailed one for each month. I have wanted to make some sort of app for a while, and thought that this was the perfect oppertunity to do so. 
+  </p>
+
+
+  
+  <h2>
+    Technologies and Libraries used
+  </h2>
+  <ul>
+    <li><b>Python:</b> Main programming language.</li>
+    <li><b>Tkinter:</b> For the graphical user interface (GUI).</li>
+    <li><b>ttk (Themed Tkinter Widgets): </b>For modern, themed widgets (e.g., Notebook tabs, Buttons, Progressbars).</li>
+    <li><b>json:</b> For reading and writing budget and expense data to disk.</li>
+    <li><b>os:</b> For file and directory management.</li>
+    <li><b>datetime:</b> For handling dates.</li>
+    <li><b>reportlab:</b> For generating PDF reports.</li>
+    <li><b>tkinter.messagebox & filedialog:</b> For user dialogs and file selection.</li>
+  </ul>
+
+
+   
+  <h2>
+    How it works
+  </h2> 
+  <p>
+    When opening the app, you're greeted with a simple interface that allows you to create a new budget for a specific month. You can then view, edit and/or delete budgets.
+  </p>
+  <img src="/projectpics/budgetapp/Untitled1.png" alt="Budget App Screenshot 1" />
+  <p>
+    Screenshot of the app when you open it. You can select a month in the dropdown menu. Only one of a spesific month can exist within a year.
+  </p>
+  <p>
+    Once you have selected a month and pressed "Lag Budsjett" (Create Budget), you will be taken to a new page:
+  </p>
+  <img src="/projectpics/budgetapp/Untitled2.png" alt="Budget App Screenshot 2" />
+    <p>
+        This is where you can add your expenses. You select the date (automatically set to today), the category, and the amount. You can also add a description if you want to. Then you can press "Legg til" (Add).
+    </p>
+   <img src="/projectpics/budgetapp/Untitled3.png" alt="Budget App Screenshot 3" />
+    <p>
+        The expense entry will then be added to the list bellow. You can edit the amount or delete the entry by clicking "Slett valgt rad" (Delete selected entry). To the right you can see your budget for this month (editable) and the total amount spent for each category. If you squint, you can see that the progress bar has increased a little towards the right. 
+        <br /> <br />You can also view a quick summary of this month's budget data by clicking "Lag rapport" (Create report). This action will generate a report like the one you see to the right. Here you can see how much you are bellow/above the budget for each category. You can also see how you are doing compared to last month.
+    </p>
+    <p>
+        Once I'm done adding expenses for a month, I can click on "Lag PDF" (Create PDF) to generate a PDF report for that month. May month is added as an example below. The report includes all data from the month, plus a overview of how much my girlfriend and I have each covered, so we know who owes what.
+    </p>
+    <a href="/pdf/rapport_2025_mai.pdf" download>Download May Report (PDF)</a><br />
+
+            <h2>What's coming?</h2>
+        <p>There are several features planned. Here is a list of upcomming features and improvements:</p>
+        <p><b>Improvements</b></p>
+        <ul>
+            <li>Reset dropdown menues after adding entries.</li>
+            <li>Improve home page with a more clear UI and more intuitive layout. </li>  
+            <li>Modernize the UI</li>
+        </ul>
+        <p><b>New Features</b></p>
+        <ul>
+            <li>Ability to add savings goals.</li>
+            <li>Add income page</li>
+            <li>Add yearly budget tab</li>
+        </ul>
+
+
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index: number) {
+  const slides = document.querySelectorAll('.carousel-image');
+  slides.forEach((slide, i) => {
+    (slide as HTMLElement).style.display = i === index ? 'block' : 'none';
+  });
+}
+
+  declare global {
+    interface Window {
+      prevSlide: () => void;
+      nextSlide: () => void;
+    }
+  }
+
+  window.prevSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  window.nextSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  // Initialize the first slide
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+  });
+</script>
+
+<style>
+  .tech-stack {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .tech-item img.tech-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  html.dark .tech-item {
+    background-color: #3b3b3b;
+    color: #ffffff;
+  }
+
+  .carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .carousel-images {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 8px;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>

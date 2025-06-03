@@ -1,9 +1,9 @@
 export const projects = [
   {
-    title: "Godot Game",
-    description: "I'm making a game using Godot Game Engine!",
-    tags: ["game", "python"],
-    image: "/images/share-image.webp",
+    title: "Budget App",
+    description: "I've been working on a budget app to help me manage my finances better.",
+    tags: ["python", "ongoing"],
+    image: "/projectpics/thumbnail/bga_thumb.png",
     url: "/projects/pro2"
   },
   {

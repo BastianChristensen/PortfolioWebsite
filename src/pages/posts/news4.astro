@@ -1,71 +1,40 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
-const pageTitle = "Projects";
-const projects = [
-    {
-    title: "Budget App",
-    description: "I've been working on a budget app to help me manage my finances better.",
-    tags: ["python", "ongoing"],
-    image: "/projectpics/thumbnail/bga_thumb.png",
-    url: "/projects/pro2"
-  },
-  {
-    title: "This Website",
-    description: "I build this website myself using Astro!",
-    tags: ["web", "ongoing"],
-    image: "/images/Untitled design.png",
-    url: "/projects/pro1"
-  }
-];
-
-const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
+const frontmatter = {
+  title: "I made a Budget App!",
+  pubDate: "03/06/2025",
+};
+const tags = ["python", "ongoing"];
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <h1>Browse my Projects</h1>
-  <h2>PROJECTS</h2>
-  <br />
-  <br />
-
-  <div class="projects-page">
-    <!-- Tag Filter -->
-    <aside class="tags-list">
-      <h3>Search by Tag</h3>
-      <ul>
-        {uniqueTags.map((tag) => (
-          <li><a href={`/projects/tags/${tag}`}>{tag}</a></li>
-        ))}
-      </ul>
-    </aside>
-
-    <!-- Project Cards -->
-    <section class="projects-list">
-      {projects.map((project) => (
-        <div class="project-card-wrapper">
-          <a href={project.url} class="project-card-link">
-            <div class="project-card">
-              <img src={project.image} alt={project.title} />
-              <div class="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </div>
-            </div>
-          </a>
-          <div class="tags">
-            {project.tags.map((tag) => (
-              <span class="tag">
-                <a href={`/projects/tags/${tag}`}>{tag}</a>
-              </span>
-            ))}
-          </div>
+<MarkdownPostLayout {...frontmatter}>
+    <p>
+        I've been working on a budget app to help me manage my finances better. The UI is very simple, and not all the planned features are implemented yet, but it is functional. The app allows you to add expenses, view your budget, and track your spending over time. You can also generate PDF reports, which is very useful for sharing and statistical purposes.
+        <br /><br />
+        The app is built with python and uses Tkinter for the GUI. I have many upcoming features planned.
+    </p>
+    <br />
+    <a href="/projects/pro2" class="project-card-link project-card-wrapper">
+      <div class="project-card">
+        <img src="/projectpics/thumbnail/bga_thumb.png" alt="Budget App" />
+        <div class="project-info">
+          <h3>Budget App</h3>
+          <p>I've been working on a budget app to help me manage my finances better.</p>
         </div>
-      ))}
-    </section>
-  </div>
-</BaseLayout>
+      </div>
+    </a>
+      <div class="tags">
+        {tags.map((tag) => (
+          <span class="tag">
+            <a href={`/projects/tags/${tag}`}>{tag}</a>
+          </span>
+        ))}
+      </div>
+    </div>
+
 
 <style>
-  
+      
   body {
     width: 100%;
     max-width: 80ch;
@@ -83,11 +52,6 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
   }
   
 
-  h2 {
-    color: orange;
-    text-align: left;
-    line-height: 0;
-  }
 
   h3 {
     color: orange;
@@ -310,5 +274,4 @@ const uniqueTags = [...new Set(projects.flatMap((project) => project.tags))];
   transform: scale(1.01);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-  
 </style>
