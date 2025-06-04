@@ -3,7 +3,7 @@ import ProjectPages from '../../layouts/ProjectPages.astro';
 
 const metadata = {
   title: "Budget App",
-  upDate: "03/05/2025",
+  upDate: "06/2025",
   proNum: "02",
   color: "#71B8E3", /* Remember to change this */
 };
@@ -33,7 +33,15 @@ const images = [
     ))}
   </div>
   <br />
+  <div class="box">
+    <h2>Latest Updates</h2>
+    <p>
+      <b>04/06/2025:</b> 
+      <ul><li>Added savings tab: I can now add saving entries and view them in a list. Editable and removable. Added progressbar and editable savings goal.</li>
+      <br /><li>Added savings progress to the PDF report.</li></ul>
+    </p>
 
+  </div>
   <h2>About this project</h2>
   <p>
 I've had a goal for some time; Be more finacially resoponsible and aware of my spending. To achieve this I have been making budgets in excel,
@@ -210,4 +218,14 @@ and it's worked great so far. I made one budget for the whole year, and then a n
   .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
+  .box {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    height: auto;
+  }
+
 </style>
