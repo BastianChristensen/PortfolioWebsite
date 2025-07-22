@@ -1,0 +1,268 @@
+---
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+
+const frontmatter = {
+  title: "Learning Blender",
+  pubDate: "22/07/2025",
+};
+const tags = ["Blender", "3D"];
+---
+<MarkdownPostLayout {...frontmatter}>
+    <p>
+      I am learning Blender, a powerful 3D modeling and animation software. Yes, it's related to my next project. I've been following the 
+      <a href="https://www.youtube.com/watch?v=B0J27sf9N1Y&list=PLjEaoINr3zgEPv5y--4MKpciLaoQYZB1Z">Donut Tutorial</a> made by Blender Guru on YouTube.<br />
+    </p>
+    <p>
+      The tutorial is a great way to get started with Blender. You very quickly learn the basics, and following along I made this donut:
+    </p>
+    <img src="/images/pink_donut.png" alt="Blender Donut" />
+    <p>
+      I stoped after making the icing because I felt like I had learned enough to start on my own stuff. More coming soon.
+    </p>
+    <br />
+
+    </div>
+
+
+<style>
+      
+  body {
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: left;
+    line-height: 0;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    word-break: break-word;
+    white-space: nowrap; /* changes */
+  }
+  
+
+
+  h3 {
+    color: orange;
+    text-align: right;
+    line-height: 1.2;
+  }
+
+  html.dark h2 {
+    color: greenyellow;
+  }
+  html.dark h3 {
+    color: greenyellow;
+  }
+  html.dark .tags-list {
+    background-color: #3b3b3b;
+  }
+  html.dark .tags-list a {
+    color: #ffffff;
+  }
+
+  .projects-page {
+    display: flex;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .projects-page {
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 2.3rem;
+    }
+    .tags {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      display: block;
+      margin-right: 0;
+      background-color: #f0f0f045;
+    }
+    .tags-list {
+      order: -1;
+      margin-bottom: 2rem;
+      width: 100%; 
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem; 
+      padding: 1rem; 
+      background-color: #f8f8f8;
+      border-radius: 8px;
+    }
+    .tags-list ul {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%; 
+    }
+    .tags-list li {
+      margin: 0; 
+    }
+    .tags-list a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: #f0f0f045;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #000000;
+    }
+    .tags-list a:hover {
+      text-decoration: underline;
+    }
+    .projects-list {
+      margin-bottom: 0;
+    }
+    .project-card {
+      flex-direction: row; 
+      align-items: center;
+    }
+    .project-card img {
+      width: 100%; 
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .project-info {
+      text-align: center;
+    }
+  }
+
+  .tags-list {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 8px;
+    max-height: fit-content;
+    align-self: flex-start
+  }
+
+  .tags-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tags-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .tags-list a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .tags-list a:hover {
+    text-decoration: underline;
+  }
+
+  .projects-list {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem; 
+  }
+
+  .project-card {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #cccccc00;
+    background-color: #7777770c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    align-items: center;
+  }
+
+  html.dark .project-card {
+    background-color: #3b3b3b6c;
+  }
+
+  .project-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .project-info {
+    flex: 1;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .tag a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .tag a:hover {
+    text-decoration: underline;
+  }
+
+  html.dark .tag {
+    background-color: #f0f0f045;
+  }
+
+  html.dark .tag a {
+    color: #ffffff;
+  }
+  .project-card-wrapper {
+  display: block;
+}
+
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card-link .project-card {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+/* Optional: hover effect */
+.project-card-link:hover .project-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+</style>
