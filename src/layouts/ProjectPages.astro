@@ -14,6 +14,10 @@ const { title, upDate, proNum, color } = Astro.props;
   a {
     color: #00539F;
   }
+  :root.dark a {
+    color: #99ccff;
+  }
+
   h3 {
     font-weight: normal;
   }
@@ -31,6 +35,10 @@ const { title, upDate, proNum, color } = Astro.props;
   }
   :root.dark .back-link {
     color: #FFD700;
+  }
+
+  :root.dark a {
+    color: #99ccff;
   }
 
   .back-link:hover {

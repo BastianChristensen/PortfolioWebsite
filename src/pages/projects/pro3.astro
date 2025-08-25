@@ -1,0 +1,235 @@
+---
+import ProjectPages from '../../layouts/ProjectPages.astro';
+
+const metadata = {
+  title: "MoneyWand",
+  upDate: "08/2025",
+  proNum: "03",
+  color: "blue"
+};
+
+const techStack = [
+  { name: "SQLite", icon: "/icons/sql-server.png"},
+  { name: "Python", icon: "/icons/python.png"},
+];
+
+const images = [
+  { src: "/images/moneywand/budget_with_data.png", alt: "Screenshot 1" }
+];
+---
+
+<ProjectPages {...metadata}>
+  <br />
+  <h2>Tech Stack</h2>
+  <div class="tech-stack">
+    {techStack.map((tech) => (
+      <span class="tech-item">
+        {tech.name}
+        <picture>
+          <img src={tech.icon} alt={`${tech.name} icon`} class="tech-icon" />
+        </picture>
+      </span>
+    ))}
+  </div>
+  <br />
+    <div class="box">
+    <h2>GitHub Link</h2>
+    <p>
+      <a href="https://github.com/BastianChristensen/MoneyWand.git">https://github.com/BastianChristensen/MoneyWand.git</a>
+    </p>
+
+  </div>
+  <div class="box">
+    <h2>Latest Update</h2>
+    <p>
+      <ul>No updates available</ul>
+    </p>
+
+  </div>
+  <h2>About this project</h2>
+  <p>
+    I've already built a budget app to help me manage my finances better. The app is functional enough, but it's not that... pretty, or user-friendly. And most importantly, it's quite difficult to expand on due to the use of JSON files for data storage. 
+    Yes, putting the whole script in a single python file was also a bad idea, but the wish to learn more about databases and SQL is what drove me to start this project from scratch.
+    <br />
+    <br />
+    Another motivation is that I want to make a more complex app with more features. The goal for the project is to have a fully functional finance application that other might enjoy using as well.
+
+  </p>
+
+  <h2>Features</h2>
+  <p>
+    At this stage there isn't any working features yet. 
+  </p>
+  <h2>Planned Features</h2>
+  <p>
+    These are the planned features for the app:
+    <ul>
+      <li>Create, view and edit monthly budgets.</li> 
+      <li>Yearly overview with key information from each month.</li>
+      <li>Savings page with multiple goals support.</li>
+      <li>Dashboard showing tables/graphs with key information, trends and summaries for current month</li>
+      <li>Page for viewing and exporting reports.</li>
+      <li>Help page with guide</li>
+    </ul>
+    <p>More might be added as I progress.</p>
+  </p>
+    <h2>NOTE</h2>
+  <p>
+    Updates will be posted on a separate blog page dedicated to this project. Check back later for updates!
+  </p>
+    <h2>Media</h2>
+  <p>
+    Here is a sneak peek of the budgets page with some dummy data:
+  </p>
+  <img src="/images/moneywand/budget_with_data.png" alt="Budget Page with Dummy Data" />
+
+
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index: number) {
+  const slides = document.querySelectorAll('.carousel-image');
+  slides.forEach((slide, i) => {
+    (slide as HTMLElement).style.display = i === index ? 'block' : 'none';
+  });
+ }
+
+  declare global {
+    interface Window {
+      prevSlide: () => void;
+      nextSlide: () => void;
+    }
+  }
+
+  window.prevSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  window.nextSlide = function () {
+    const slides = document.querySelectorAll('.carousel-image');
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  // Initialize the first slide
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+  });
+</script>
+
+<style>
+
+  .night-border {
+    border-color: white;
+  }
+
+  .tech-stack {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+
+  .tech-item img.tech-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  html.dark .tech-item {
+    background-color: #3b3b3b;
+    color: #ffffff;
+  }
+
+    a {
+      color: #00539F;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    html.dark a {
+      color: #FFD700 !important;
+    }
+    html.dark a:hover {
+      color: #FFD700 !important;
+      text-decoration: underline;
+    }
+    html.dark a:visited {
+      color: #FFD700 !important;
+    }
+
+  .carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .carousel-images {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 8px;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .box {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    height: auto;
+  }
+
+  html.dark .box {
+    border: 1px solid rgb(132, 132, 132);
+  }
+
+  html.
+</style>
