@@ -9,7 +9,7 @@ export const projects = [
   {
     title: "Budget App",
     description: "I've been working on a budget app to help me manage my finances better.",
-    tags: ["python", "ongoing", "software development"],
+    tags: ["python", "finished", "software development"],
     image: "/projectpics/thumbnail/bga_thumb.png",
     url: "/projects/pro2"
   },
