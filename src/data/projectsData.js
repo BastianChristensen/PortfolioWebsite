@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: "MoneyWand",
-    description: "Starting from scratch, I'm building a larger app with Tkinter and SQLite.",
+    description: "Large personal finance software. Made with Tkinter and SQLite.",
     tags: ["python", "ongoing", "software development", "database"],
     image: "/images/moneywand/wiz.png",
     url: "/projects/pro3"
