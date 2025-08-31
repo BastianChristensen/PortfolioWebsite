@@ -1,0 +1,129 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+---
+
+
+<BaseLayout pageTitle="Devlog">
+  <main class="devlog-layout">
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .devlog-layout {
+    width: 100%;
+    max-width: 80ch;
+    margin: 0 auto;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+  h1 {
+    text-align: left;
+    font-size: 2.5rem;
+    word-break: break-word;
+    margin-bottom: 0.5rem;
+  }
+  .devlog-desc {
+    font-size: 1.1rem;
+    color: #767676;
+    margin-bottom: 2rem;
+  }
+  .devlog-slot {
+    margin-bottom: 2.5rem;
+  }
+  .devlog-logs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .devlog-card {
+    background: #f9f9f9;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    padding: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .devlog-card h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.2rem;
+    color: orange;
+    word-break: break-word;
+  }
+  .devlog-date {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+  .devlog-card p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: #767676;
+    word-break: break-word;
+  }
+  .devlog-link {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background: #00539F;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+  .devlog-link:hover {
+    background: #FFD700;
+    color: #222;
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #00539F;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    background: #f0f0f0;
+    transition: background 0.2s;
+  }
+  .back-link:hover {
+    background: #FFD700;
+    color: #222;
+    text-decoration: underline;
+  }
+  html.dark .devlog-card {
+    background: #3b3b3b6c;
+    color: #fff;
+    border: 1px solid #444;
+  }
+  html.dark .devlog-card h3 {
+    color: #FFD700;
+  }
+  html.dark .devlog-link {
+    background: #FFD700;
+    color: #222;
+  }
+  html.dark body .back-link,
+  html.dark .devlog-layout .back-link {
+    background: #3b3b3b;
+    color: #FFD700 !important;
+  }
+  @media (max-width: 600px) {
+    .devlog-layout {
+      padding: 0.5rem;
+    }
+    h1 {
+      font-size: 1.7rem;
+    }
+    .devlog-card {
+      max-width: 98vw;
+      padding: 0.7rem;
+    }
+  }
+</style>
