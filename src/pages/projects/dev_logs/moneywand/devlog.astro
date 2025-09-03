@@ -14,12 +14,45 @@ import DevlogLayout from '../../../../layouts/DevlogLayout.astro';
     <aside class="devlog-sidebar">
       <h2>Entries</h2>
       <ul>
-        <li><a href="#entry-2">App Layout Progress</a></li>
-        <li><a href="#entry-1">Initial Entry</a></li>
+        <li><a href="#entry-3">03/09 "Create New Budget" Functionality</a></li>
+        <li><a href="#entry-2">31/08 App Layout Progress</a></li>
+        <li><a href="#entry-1">28/08 Initial Entry</a></li>
         <!-- Add more links for additional entries -->
       </ul>
     </aside>
     <section class="devlog-logs">
+      <div class="devlog-card" id="entry-3">
+        <h4>Create New Budget functionality</h4>
+        <div class="devlog-date">03/09/2025</div>
+        <p>
+          Serious progress has been made on functionality; Users can now create a new unique budget for a year/month combo.
+          A unique budget ID is created and stores in the database along with year and month. 
+          <br /><br />
+          I've also created a setup window for the budget that appears before the main window. Here the user can configure the budget; name, currency, categories and spending limits.
+          This is currenty not being stores, but will be soon. Some of these settings will alos be changeable in the budget window later on.
+          <b>What's Next</b>
+          <br />
+          <ul>
+            <li>New Budget Pop-Up with configuration</li>
+            <li>Load Budget Pop-Up</li>
+            <li>Smaller UI improvements</li>
+          </ul>
+          <p>
+            Screenshots: 
+          </p>
+        </p>
+        <p>First New Budget Pop-Up</p>
+        <img src="/images/moneywand/Screenshot 2025-09-03 at 18.11.59.png" alt="First New Budget Pop-Up" />
+        <p>Load Budget Pop-Up</p>
+        <img src="/images/moneywand/Screenshot 2025-09-03 at 18.12.11.png" alt="Load Budget Pop-Up" />
+        <p>Budget Setup</p>
+        <img src="/images/moneywand/Screenshot 2025-09-03 at 18.12.54.png" alt="Budget setup page" />
+        <p>Editable Categories</p>
+        <img src="/images/moneywand/Screenshot 2025-09-03 at 18.12.58.png" alt="Editable Categories" />
+        <p>Editable Spending Limit</p>
+        <img src="/images/moneywand/Screenshot 2025-09-03 at 18.13.04.png" alt="Editable Spending Limits" />
+      </div>
+    <br /><br /><br /><br /><br /><br />
       <div class="devlog-card" id="entry-2">
         <h4>App Layout Progress</h4>
         <div class="devlog-date">31/08/2025</div>
