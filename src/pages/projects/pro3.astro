@@ -14,7 +14,8 @@ const techStack = [
 ];
 
 const images = [
-  { src: "/images/moneywand/budget_with_data.png", alt: "Screenshot 1" }
+  { src: "/images/moneywand/budget_with_data.png", alt: "Early Budget Page Layout" },
+  { src: "/images/moneywand/Screenshot 2025-09-13 at 22.39.00.png", alt: "Budget Page (13.September)" },
 ];
 ---
 
@@ -72,11 +73,22 @@ const images = [
     </ul>
     <p>More might be added as I progress.</p>
   </p>
-    <h2>Media</h2>
-  <p>
-    Here is a sneak peek of the budgets page with some dummy data:
-  </p>
-  <img src="/images/moneywand/budget_with_data.png" alt="Budget Page with Dummy Data" />
+
+  <h2>Media</h2>
+  <div class="carousel">
+    <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+    <div class="carousel-images">
+      {images.map((image, index) => (
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="carousel-image"
+          style={`display: ${index === 0 ? 'block' : 'none'};`}
+        />
+      ))}
+    </div>
+    <button class="carousel-button next" onclick="nextSlide()">❯</button>
+  </div>
 
 
 <script>

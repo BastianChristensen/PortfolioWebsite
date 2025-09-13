@@ -14,6 +14,7 @@ import DevlogLayout from '../../../../layouts/DevlogLayout.astro';
     <aside class="devlog-sidebar">
       <h2>Entries</h2>
       <ul>
+        <li><a href="#entry-4">13/09 Implemented Budget Features</a></li>
         <li><a href="#entry-3">03/09 "Create New Budget" Functionality</a></li>
         <li><a href="#entry-2">31/08 App Layout Progress</a></li>
         <li><a href="#entry-1">28/08 Initial Entry</a></li>
@@ -22,8 +23,35 @@ import DevlogLayout from '../../../../layouts/DevlogLayout.astro';
     </aside>
     <section class="devlog-logs">
       <div class="devlog-card" id="entry-3">
+        <h4>Implemented Budget Features</h4>
+        <div class="devlog-date"><b>13/09/2025</b></div>
+        <p>
+          I've come a long way on the budget features. Users can now Add, Edit and Remove expense entries. Furthermore, users can assign an expense to a predefined person (contributor). They will also be able to edit the spending limits for each category.
+          <br /><br />
+          I've also made a section for adding, editing and removing income. This is being stored to the database. Lastly, I've added some UI improvements like progress bars for each category, showing how much of the spending limit has been used.
+          <br /><br />
+          <b>What's New</b>
+          <br />
+          <ul>
+            <li>Add, Edit and Remove functionality for expense and income entries.</li>
+            <li>Progress bars for each category</li>
+            <li>Assign expenses to a person</li>
+            <li>Income section</li>
+          </ul>
+          <p>
+            Screenshots:
+          </p>
+        <p><b>Adding Contributors</b></p>
+        <img src="/images/moneywand/Screenshot 2025-09-13 at 22.28.21.png" alt="Adding Contributors" />
+        <p><b>Current Budget Page</b></p>
+        <img src="/images/moneywand/Screenshot 2025-09-13 at 22.39.00.png" alt="Current Budget Page" />
+        </p>
+
+      </div>
+    <br /><br /><br /><br /><br /><br />
+      <div class="devlog-card" id="entry-3">
         <h4>Create New Budget functionality</h4>
-        <div class="devlog-date">03/09/2025</div>
+        <div class="devlog-date"><b>03/09/2025</b></div>
         <p>
           Serious progress has been made on functionality; Users can now create a new unique budget for a year/month combo.
           A unique budget ID is created and stores in the database along with year and month. 
@@ -56,7 +84,7 @@ import DevlogLayout from '../../../../layouts/DevlogLayout.astro';
     <br /><br /><br /><br /><br /><br />
       <div class="devlog-card" id="entry-2">
         <h4>App Layout Progress</h4>
-        <div class="devlog-date">31/08/2025</div>
+        <div class="devlog-date"><b>31/08/2025</b></div>
         <p>
           I've made significant progress on the app layout for MoneyWand. The main window, and it's navigation structure is in place, and almost all destinations are reachable from the main window.
           <br />
@@ -76,7 +104,7 @@ import DevlogLayout from '../../../../layouts/DevlogLayout.astro';
     <br /><br /><br /><br /><br /><br />
       <div class="devlog-card" id="entry-1">
         <h4>Initial Entry</h4>
-        <div class="devlog-date">28/08/2025</div>
+        <div class="devlog-date"><b>28/08/2025</b></div>
         <p>
           MoneyWand is based off my previous budgeting application; <b>BudgetApp</b>. I wanted to improve the UI and implement more features, but working on BudgetApp was and is a nightmare due to spaghetti code and a single JSON file for data storage. Therefore, I’ve lost all interest in trying to improve that project, and in many ways it is easier to start a new one.
         </br></br>
