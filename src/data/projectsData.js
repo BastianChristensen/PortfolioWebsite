@@ -16,7 +16,7 @@ export const projects = [
   {
     title: "This Website",
     description: "I build this website myself using Astro!",
-    tags: ["web", "ongoing", "software development"],
+    tags: ["web", "ongoing"],
     image: "/images/Untitled design.png",
     url: "/projects/pro1"
   }
